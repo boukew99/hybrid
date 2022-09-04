@@ -11,12 +11,38 @@
 <html lang="en">
 <title>Random Event</title>
 <h1>Random Event</h1>
-<button onclick="random_event()">Draw Event</button>
+<button onclick="random_event_text()">Draw Event</button>
+<p id=turn_text>turn: 0</p>
+<h3 id=event_text></h3>
 <img id=view>
 <!--<script src="script.js"></script>-->
 <script>
+event_text.setAttribute('style', 'white-space: pre;'); //this makes linebreak (/r/n ) possible.
+var turn = 0;
 function random_event(){
 	view.src = Math.random() > 0.5 ? 'sponsor.svg' : "fire.svg" 
+}
+
+
+function random_event_text(){
+var event_prob = Math.random();
+if (event_prob>=.6 && event_prob<.85){//negative event vuur
+	if (Math.random )
+	var randomI = Math.floor(Math.random() * 4)+1; //+1 om 0 te voorkomen
+	var randomJ = Math.floor(Math.random() * 7)+1;
+	var location = "Verti"+randomI+" Hori"+randomJ;
+		event_text.textContent = "A pyromaniac, anti-environmentalist or very clumsy person set fire at " +location+".\r\n Throw a dice for each surrounding tile, 5 or 6 means the fire is spread."; 
+	} else if(event_prob>=.85 && event_prob <.95){//positive event water supply
+		event_text.textContent = "Non-profits and volunteers stand by you: pick one tile to be watered by a drone."
+	} else if(event_prob>=.95){
+	event_text.textContent = "Non-profits and volunteers stand by you: assign a forester to a tile that will protect it and the 4 surrounding tiles. "
+	}
+	
+	else{ //if <.6, no event this turn
+		event_text.textContent = "No events this turn. Stay tuned!"
+		  }
+turn+=1;
+turn_text.textContent = "turn: "+turn;
 }
 </script>
 
