@@ -28,6 +28,10 @@
 5. Soil degradation negatively impacts 3.2 billion people around the world. (UNCCD, 2019) #SaveSoil savesoil.org
 6. Presence of earthworms can increase yields by 43-350%. (NZ Grassland Association, 1951) #SaveSoil savesoil.org
 7. 95% of the food we eat comes from the soil. (FAO, 2019) #SaveSoil savesoil.org
+
+## https://aardeboerconsument.nl/
+
+## https://ec.europa.eu/commission/presscorner/detail/en/qanda_21_5917
 8. Increasing soil organic content from 0.5 to 3% will double the water retained by soil. (FAO, 2019) #SaveSoil savesoil.org
 9. Only 1% of soil microorganism species have been identified. (European Union, 2010) #SaveSoil savesoil.org
 10. A study on nutrients in food concluded that we would have to eat 8 oranges to get the same amount of Vitamin A as our grandparents did with one orange, because soil depletion has caused massive drops in nutrient levels in food. (Scientific American, 2011) #SaveSoil savesoil.org
