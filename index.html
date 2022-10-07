@@ -1,35 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="index/style.css"> 
+	<link rel="icon" type="image/x-icon" href="index/favicon.ico">
+	<title>Save the Soil: Defeat the Drought</title>
+	<style>
+	
+	</style>
+</head>
+<body><header>
+	<h1>Save the Soil: Defeat the Drought - Game Rules</h1>
 
-<!--<link rel="stylesheet" href="/style.css"> -->
-<style>
-</style>
+	<p>Drought is devastating for anything that lives on this planet. It also has a multiplier-effect: the more drought, the less trees and micro-organisms to control the expansion of drought. The global temperature rise, forest logging and fires are just making things wors. In this game, you defeat the drought by taking care of the forests. The goal of the game is to assign a protective forester to key areas such that they will do your job in the future and you can leave the map confidently and complete peace of mind.</p>
+</header>
+<main>
+	<h2>Setup</h2>
+	<p>The programm will generate a map based on the number of players, map size and difficulty level you input. This map should then be replicated with the physical tiles.
+	Each player takes a creative pawn (a beer lit, key chain, button or an actual pawn - as long as its distinguishable) and puts it on the *Supply Point. Pick 5 <strong>resources</strong> according to your choice.</p>
+
+	<form action=map-generator.html>
+		<fieldset>
+			<legend>What map size would you like to play?</legend>
+			
+			<label>5 by 5, the quickest and easiest size.
+				<input type=radio name=map-size value=5x5>
+			</label>
+			<label>8 by 8, more advanced planning and strategy.		
+				<input type=radio name=map-size value=8x8>
+			</label>
+			<label>13 by 13, a good balance between play time and depth.
+				<input type=radio name=map-size value=13x13>
+			</label>
+			
+			<label>21 by 21, more difficult.
+				<input type=radio name=map-size value=21x21>
+			</label>
+		</fieldset>
+		
+		<fieldset>
+			<legend>How many players do you consist of?</legend>
+			<label>1
+				<input type=radio name=player-count value=1>
+			</label>
+			<label>2
+				<input type=radio name=player-count value=2>
+			</label>
+			<label>3
+				<input type=radio name=player-count value=3>
+			</label>
+			<label>4
+				<input type=radio name=player-count value=4>
+			</label>
+			<label>5
+				<input type=radio name=player-count value=5>
+			</label>
+			<label>6
+				<input type=radio name=player-count value=6>
+			</label>
+		</fieldset>
+		
+		<input type="submit" value="Generate map">
+	</form>
+	
+	<h2>Resources</h2>
+	<p>Resources are usable tokens that you carry around. The types are <strong>Power Water</strong>, <strong>loved-induced soil</strong> (containing plant seeds, micro-organisms, etc. - everything the ground needs!) and <strong>food</strong> for you and your team members. 
+	<strong>Power water</strong> can be used to put out fire or to water a forest. 
+	<strong>loved-induced soil</strong> (LIS) is used for growing forests. 
+	<strong>food</strong> is used to stay alive around the map without being at a food forest or the supply point.</p>
 
 
-<title>Save the Soil: Defeat the Drought</title>
-<h1>Save the Soil: Defeat the Drought - Game Rules</h1>
-
-<p>Drought is devastating for anything that lives on this planet. It also has a multiplier-effect: the more drought, the less trees and micro-organisms to control the expansion of drought. The global temperature rise, forest logging and fires are just making things wors. In this game, you defeat the drought by taking care of the forests. The goal of the game is to assign a protective forester to key areas such that they will do your job in the future and you can leave the map confidently and complete peace of mind.</p>
-
-<h2>Setup</h2>
-
-<p><a href="map_gen">Generate a map</a> based on the number of players and difficulty level. Copy this map with the physical tiles.
-Each player takes a creative pawn (a beer lit, key chain, button or an actual pawn - as long as its distinguishable) and puts it on the *Supply Point. Pick 5 <strong>resources</strong> according to your choice.</p>
-
-<h2>Resources</h2>
-
-<p>Resources are usable tokens that you carry around. The types are <strong>Power Water</strong>, <strong>loved-induced soil</strong> (containing plant seeds, micro-organisms, etc. - everything the ground needs!) and <strong>food</strong> for you and your team members. 
-<strong>Power water</strong> can be used to put out fire or to water a forest. 
-<strong>loved-induced soil</strong> (LIS) is used for growing forests. 
-<strong>food</strong> is used to stay alive around the map without being at a food forest or the supply point.</p>
-
-
+	<figure>
+		<figcaption>All the tiles</figcaption>
+		<figure>
+			<img src=map-generator/forest.png alt=forest>
+			<figcaption>forest tile, this tile can turn into desert if misused.</figcaption>
+		</figure>
+		<figure>
+			<img src=map-generator/desert.png alt=desert>
+			<figcaption>desert tile, the goal is to turn this into forest tiles.</figcaption>
+		</figure>
+		<figure>
+			<img src=map-generator/city.png alt=city>
+			<figcaption>city tile, this is where you start.</figcaption>
+		</figure>
+	</figure>
+</main>
 <!--<script src="script.js"></script>-->
 <script>
 </script>
 
-<!--
-End comments
+</body>
