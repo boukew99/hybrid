@@ -160,6 +160,8 @@ for (var i = 0, row; row = table.rows[i]; i++) {
  
 
 	function createTable() {
+	var map_width = 12;
+	var map_heigth = 8;
   const body = document.body,
         tbl = document.createElement('table');
 		tbl.id = "gameMap"
@@ -176,9 +178,9 @@ var img = document.createElement('img');
 	img.alt = "desert"
 	img.setAttribute('drought', 1)
 	
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < map_heigth; i++) {
     const tr = tbl.insertRow();
-    for (let j = 0; j < 8; j++) {
+    for (let j = 0; j < map_width; j++) {
  
         const td = tr.insertCell();
 		
@@ -186,7 +188,7 @@ var img = document.createElement('img');
 		td.drought = 0
      //   td.appendChild(document.createTextNode(`Cell I${i}/J${j}`));
 		//td.appendChild(img)
-		if (0 < i  && i < 5 && 0 < j && j < 7) { // 0 < i < 5 is blijkbaar geen JS-syntax
+		if (0 < i  && i < (map_heigth-1) && 0 < j && j < (map_width-1)) { // 0 < i < 5 is blijkbaar geen JS-syntax
 		//if (i != 0 && i != 5 && j != 0 && j!= 7){
 		td.drought = 1
 		td.innerHTML="<img src='desert.png' alt='desert' class='imgMC'/>"
@@ -194,13 +196,16 @@ var img = document.createElement('img');
 				td.innerHTML="<img src='forest.png' alt='forest' class='imgMC'/>"
 				td.drought = 0
 				}
-		 console.log("hiero "+ td.getElementsByTagName("img")) //td.['img'] td.img geeft undefined
+			if (i==Math.floor(map_heigth/2) && j==Math.floor(map_width/2)){ td.innerHTML = "<img src='city.png' alt='city' class='imgMC'/>" }
+		// console.log("hiero "+ td.getElementsByTagName("img")) //td.['img'] td.img geeft undefined
 		
 		// td.appendChild(document.createTextNode(`Cell I${i}/J${j}`));
 		
 		} 
     
         }
+		// assign city tile. Dit moet achteraf,  anders heb je bias van probabality of dat city tile uiteindelijk nergens komt?
+	//	Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
       }
 
   body.appendChild(tbl);
