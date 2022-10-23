@@ -76,16 +76,21 @@ main {
 	grid-template-columns: repeat(auto-fill, 21em);*/
 }
 
+input {
+	accent-color: #0b9c25;
+}
+
 form {
 	border: 0.2em black solid;
 	background:lightgrey;
 	}
 	
-
-
-
+label {
+	display:block;
+}
 p {
 	max-width:30em;
+	/*column-width:30em;*/ 
 }
 img, table {
 	max-width: 100%;
