@@ -11,11 +11,15 @@ window.addEventListener('load', (event) => {
 			localStorage.clear()
 	}
 	
-	const cells = document.getElementsByTagName("img");
-//	const cells = document.querySelectorAll("td");
+	const cells = Array.from(document.getElementsByTagName("img"));
+	const desert = cells.filter(x => x.alt == "desert")
+//	const forest = cells.filter(x => x.alt == "forest")
+	const forest = document.querySelectorAll('img[alt="forest"]')
+	
+	console.log(forest)
 	difficulty = 24;
-	state = []
-	for (const cell of cells) {  
+	let state = []
+	for (const cell of desert) {  
 		if (Math.random() > 0.5) {	// use a more consistent difficulty algoritm	
 			cell.src = "map/forest.png";
 			cell.alt = "forest";
@@ -23,6 +27,13 @@ window.addEventListener('load', (event) => {
 			state.push(1)
 		}
 		else state.push(2)
+	}
+	for (const cell of forest) {  
+		if (Math.random() > 0.5) {	// use a more consistent difficulty algoritm	
+			cell.src = "map/desert.png";
+			cell.alt = "desert";
+			difficulty-= 1;
+		}
 	}
 	localStorage.setItem("state", state)
 	let forestTiles = state.filter(x => x==1).length
