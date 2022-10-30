@@ -17,7 +17,7 @@ window.addEventListener('load', (event) => {
 	state = []
 	for (const cell of cells) {  
 		if (Math.random() > 0.5) {	// use a more consistent difficulty algoritm	
-			cell.src = "map-files/forest.png";
+			cell.src = "map/forest.png";
 			cell.alt = "forest";
 			difficulty-= 1;
 			state.push(1)
@@ -51,7 +51,7 @@ for (var i = 0, cell; cell = mapCells[i]; i++) {
 console.log("dit is mapcell[i]", mapCells[i]['drought'])
 console.log("dit is cell ",cell['drought'])
 if(Math.random()>.2 && mapCells[i-1]['drought'] == 1 && mapCells[i+1]['drought'] == 1 ){
-cell.src = 'map-files/desert.png'
+cell.src = 'map/desert.png'
 }
 //cell.setAttribute('drought', 1) //zo'n new attribute is blijkbaar niet accessible via console.log, want geeft hierna undefined terug. 
 cell.drought = 1 //direct nieuwe waarde introduceren en setten gaat zonder problemen en komt ook goed terug in console.log
@@ -93,7 +93,7 @@ for (var i = 0, row; row = table.rows[i]; i++) {
 //counter om cell nummerID te geven
 var cell_id = 0;
 var img = document.createElement('img');
-    img.src = "map-files/desert.png";
+    img.src = "map/desert.png";
 	img.alt = "desert"
 	img.setAttribute('drought', 1)
 	
@@ -110,9 +110,9 @@ var img = document.createElement('img');
 		if (0 < i  && i < 5 && 0 < j && j < 7) { // 0 < i < 5 is blijkbaar geen JS-syntax
 		//if (i != 0 && i != 5 && j != 0 && j!= 7){
 		td.drought = 1
-		td.innerHTML="<img src='map-files/desert.png' alt='desert' class='imgMC'/>"
+		td.innerHTML="<img src='map/desert.png' alt='desert' class='imgMC'/>"
 			if (Math.random() > 0.5) {		
-				td.innerHTML="<img src='map-files/forest.png' alt='forest' class='imgMC'/>"
+				td.innerHTML="<img src='map/forest.png' alt='forest' class='imgMC'/>"
 				td.drought = 0
 				}
 		 console.log("hiero "+ td.getElementsByTagName("img")) //td.['img'] td.img geeft undefined
@@ -131,7 +131,7 @@ var img = document.createElement('img');
 event_text.setAttribute('style', 'white-space: pre;'); //this makes linebreak (/r/n ) possible.
 var turn = 0;
 function random_event(){
-	view.src = Math.random() > 0.5 ? 'map-files/sponsor.svg' : "map-files/fire.svg" 
+	view.src = Math.random() > 0.5 ? 'map/sponsor.svg' : "map/fire.svg" 
 }
 
 
