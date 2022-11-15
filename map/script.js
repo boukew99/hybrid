@@ -1,45 +1,61 @@
 window.addEventListener('load', (event) => {
-	
 	const urlParams = new URLSearchParams(window.location.search);
 	if (urlParams.has('t')) {
-		const turn = urlParams.get('t')
-		document.getElementById('turn').value = parseInt(turn) + 1
-		document.getElementById('turn_text').textContent = 'turn: ' + turn
+		const turn = parseInt( urlParams.get('t') )
+		document.getElementById('turn').value = turn + 1
+		document.getElementById('turn_text').textContent = 'turn: ' + turn	
+		random_event_text()
+		document.getElementById("difficulty").style.display = "none"
+		let state = JSON.parse(localStorage.getItem("state"))
+		let cells = document.getElementsByTagName("img");
+		for (const cell of cells) {
+			var cell_state = state.shift()
+			if (cell.alt == "city") {
+				continue
+				
+			}
+			else if (cell_state == "forest") {
+				cell.src = "map/forest.png";
+				cell.alt = "forest";
+			}
+			else if (cell_state == "desert") {
+				cell.src = "map/desert.png"
+				cell.alt = "desert";
+			}
+		}
+	}
+	else {
+		localStorage.clear()
+		const cells = Array.from(document.getElementsByTagName("img"));
+		const desert = cells.filter(x => x.alt == "desert")
+		//	const forest = cells.filter(x => x.alt == "forest")
+		const forest = document.querySelectorAll('img[alt="forest"]')
 		
-	}
-	if (urlParams.has('new'))	 {
-			localStorage.clear()
-	}
-	
-	const cells = Array.from(document.getElementsByTagName("img"));
-	const desert = cells.filter(x => x.alt == "desert")
-//	const forest = cells.filter(x => x.alt == "forest")
-	const forest = document.querySelectorAll('img[alt="forest"]')
-	
-	console.log(forest)
-	difficulty = 24;
-	let state = []
-	for (const cell of desert) {  
-		if (Math.random() > 0.5) {	// use a more consistent difficulty algoritm	
-			cell.src = "map/forest.png";
-			cell.alt = "forest";
-			difficulty-= 1;
-			state.push(1)
+		console.log(forest)
+		difficulty = 24;
+		let state = []
+		for (const cell of desert) {  
+			if (Math.random() > 0.5) {	// use a more consistent difficulty algoritm	
+				
+				cell.alt = "forest";
+				difficulty-= 1;
+				state.push("forest")
+			}
+			else state.push("desert")
 		}
-		else state.push(2)
-	}
-	for (const cell of forest) {  
-		if (Math.random() > 0.5) {	// use a more consistent difficulty algoritm	
-			cell.src = "map/desert.png";
-			cell.alt = "desert";
-			difficulty-= 1;
+		for (const cell of forest) {  
+			if (Math.random() > 0.5) {	// use a more consistent difficulty algoritm	
+				cell.src = "map/desert.png";
+				cell.alt = "desert";
+				difficulty-= 1;
+			}
 		}
+		localStorage.setItem("state", JSON.stringify(state))
+		let forestTiles = state.filter(x => x==1).length
+		document.getElementById("difficulty").innerHTML +=Math.round(( (difficulty*100/24))) + "%";
 	}
-	localStorage.setItem("state", state)
-	let forestTiles = state.filter(x => x==1).length
-	document.getElementById("difficulty").innerHTML +=Math.round(( (difficulty*100/24))) + "%";
+
 	//random_event()
-	random_event_text()
 	
 	//createTable();	
 
