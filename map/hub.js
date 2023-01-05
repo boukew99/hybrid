@@ -1,3 +1,7 @@
+mapSizeVert = 10;
+mapSizeHor = 5;
+numbOfTiles = mapSizeHor*mapSizeVert;
+
 function changeTerrain(){
 	//logica om zand->bos en andersom te simuleren
 	//omliggende horizontale en verticale velden zijn: west cell[-4] noord cell[-1] oost cell[+4] zuid cell[+1]
@@ -11,16 +15,17 @@ console.log(arr)
 const mapCells = Array.from(document.getElementsByClassName("imgMC")); //mapCell moet dan nog naar img.alt kunnen kijken - hoe van td element naar cell.getElementsByTagName("img")
 console.log("dit is const array mapcells", mapCells)
 for (var i = 0, cell; cell = mapCells[i]; i++) {
-console.log("dit is mapcell[i]", mapCells[i]['drought'])
-console.log("dit is cell ",cell['drought'])
-if(Math.random()>.2 && mapCells[i-1]['drought'] == 1 && mapCells[i+1]['drought'] == 1 ){
+	if (i > mapSizeHor+1 && i < numbOfTiles-mapSizeHor-1){
+console.log("dit is mapcell[i]", mapCells[i]['alt'])
+console.log("dit is mapcell[i-1]", mapCells[i-1])
+if(Math.random()>.2 && mapCells[i-1]['alt'] == 'desert' && mapCells[i+1]['alt'] == 'desert' ){
 cell.src = 'map/desert.png'
 }
 //cell.setAttribute('drought', 1) //zo'n new attribute is blijkbaar niet accessible via console.log, want geeft hierna undefined terug. 
 cell.drought = 1 //direct nieuwe waarde introduceren en setten gaat zonder problemen en komt ook goed terug in console.log
 console.log("dit is cell buiten loop ",cell['drought'])
-console.log(cell.alt)
-console.log(cell.drought)
+console.log(cell)
+console.log(cell.drought)}
 
 }
 /*var table = document.getElementById("gameMap");
@@ -60,17 +65,18 @@ var img = document.createElement('img');
 	img.alt = "desert"
 	img.setAttribute('drought', 1)
 	
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < mapSizeVert; i++) {
     const tr = tbl.insertRow();
-    for (let j = 0; j < 8; j++) {
+    for (let j = 0; j < mapSizeHor; j++) {
  
         const td = tr.insertCell();
 		
 		td.setAttribute('class', "mapCell" ) //counter cell_id=+1??
-		td.drought = 0
+		td.drought = 0 //value of the borders (invisble tiles) will not change because they stay out of the i,j loop
+		td.innerHTML="<img alt='border' class='imgMC'/>"
      //   td.appendChild(document.createTextNode(`Cell I${i}/J${j}`));
 		//td.appendChild(img)
-		if (0 < i  && i < 5 && 0 < j && j < 7) { // 0 < i < 5 is blijkbaar geen JS-syntax
+		if (0 < i  && i < mapSizeVert-1 && 0 < j && j < mapSizeHor-1) { // 0 < i < 5 is blijkbaar geen JS-syntax
 		//if (i != 0 && i != 5 && j != 0 && j!= 7){
 		td.drought = 1
 		td.innerHTML="<img src='map/desert.png' alt='desert' class='imgMC'/>"
@@ -83,6 +89,7 @@ var img = document.createElement('img');
 		// td.appendChild(document.createTextNode(`Cell I${i}/J${j}`));
 		
 		} 
+		
     
         }
       }
