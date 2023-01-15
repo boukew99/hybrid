@@ -11,26 +11,20 @@
 <h1>Map</h1>
 <div id=mapDiv></div>
 
-<p id =difficulty> the difficulty of this generated map is </p>
 <p>Copy this layout with the physical tiles.</p>
 
 
 <img id=view>
 
-<button onclick="plantTree()">Plant New Tree</button>
+<button onclick="plantTree()">Plant New Tree Memory (when tree disappears, you can turn the sand tile into forest)</button>
 <div id='seedcount'></div>
 
 <p id=turn_text>turn: 0</p>
 <h3 id=event_text></h3>
 
-<form>
-	<input id=turn name=t type=hidden value=1>
-	<input type=submit value="next turn">
-</form>
-<button onclick="next_turn()">Formless next turn</button>
+<button onclick="next_turn()">next turn</button>
 
-<button onclick="createTable()">Create Mappa</button>
-<button onclick="changeTerrain()">Get Sandy</button>
+<button onclick="changeTerrain()">Testbutton for the automatical desertation based on probability and surrounding tiles</button>
 <script>
 //createTable()
 </script>

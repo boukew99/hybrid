@@ -88,7 +88,7 @@ var img = document.createElement('img');
 			if (Math.random() > 0.5) {		
 				td.innerHTML="<img src='map/forest.png' alt='forest' class='imgMC'/>"
 				td.drought = 0
-				}
+								}
 		 console.log("hiero "+ td.getElementsByTagName("img")) //td.['img'] td.img geeft undefined
 		
 		// td.appendChild(document.createTextNode(`Cell I${i}/J${j}`));
