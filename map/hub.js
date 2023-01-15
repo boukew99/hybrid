@@ -92,14 +92,14 @@ var img = document.createElement('img');
 		 console.log("hiero "+ td.getElementsByTagName("img")) //td.['img'] td.img geeft undefined
 		
 		// td.appendChild(document.createTextNode(`Cell I${i}/J${j}`));
-		
+		mapDiv.append(tbl)
 		} 
 		
     
         }
       }
 
-  body.appendChild(tbl);
+ // body.appendChild(tbl);
 }
 
 // event
@@ -133,3 +133,4 @@ if (event_prob>=.6 && event_prob<.85){//negative event vuur
 //turn_text.textContent = "turn: "+turn;
 }
 
+window.addEventListener('load', createTable)
