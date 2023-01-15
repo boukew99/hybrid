@@ -118,5 +118,6 @@ function next_turn(){
 	turn_count+=1;
 	document.getElementById('turn_text').textContent = 'turn: ' + turn_count	;
 	growing_seed();
+	random_event_text();
 }
 
