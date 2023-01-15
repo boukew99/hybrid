@@ -1,5 +1,9 @@
-mapSizeVert = 10;
-mapSizeHor = 5;
+
+const urlParamsHub = new URLSearchParams(window.location.search);
+
+const numbOfPlayers = urlParamsHub.get('player-count');
+mapSizeVert = numbOfPlayers*2+4;
+mapSizeHor = numbOfPlayers*2+4;
 numbOfTiles = mapSizeHor*mapSizeVert;
 
 function changeTerrain(){
@@ -46,6 +50,7 @@ for (var i = 0, row; row = table.rows[i]; i++) {
 	//}
 	*/
 	};
+
  
 
 	function createTable() {
